@@ -15,7 +15,7 @@ const Header = () => {
         stiffness: 80,
         damping: 12,
       }}
-      className="flex justify-between items-center border-b-[0.5px] border-b-gray-100 shadow-sm px-4 sm:px-8 py-3 sm:py-4 cursor-pointer sticky top-0 bg-white z-50"
+      className="flex justify-between items-center border-b-[0.5px] shadow-xs px-4 sm:px-8 py-3 sm:py-4 cursor-pointer sticky top-0 bg-white z-50"
     >
       <Link href={"/"} className="flex items-center gap-2">
         <Wallet />

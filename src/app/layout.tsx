@@ -1,20 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Roboto } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/footer";
 import { ClerkProvider } from "@clerk/nextjs";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// ✅ Make sure this is above RootLayout
+const roboto = Roboto({
   subsets: ["latin"],
+  weight: ["400", "500", "700"], // optional but good to include
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-const roboto = Roboto({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,18 +18,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={roboto.className} suppressHydrationWarning>
-          {/* header */}
+        <body
+          className={`${roboto.className} flex min-h-screen flex-col`}
+          suppressHydrationWarning
+        >
           <Header />
-          {/* main */}
-          <main className="h-screen">{children}</main>
-          {/* footer */}
+          <main className="flex-1 overflow-auto">{children}</main>
           <Footer />
         </body>
       </html>

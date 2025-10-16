@@ -1,8 +1,9 @@
-import React from "react";
-
 const Authlayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="border flex justify-center items-center">{children}</div>
+    <div className="flex min-h-screen items-center justify-center bg-gray-50 overflow-hidden">
+      <div className="p-4">{children}</div>
+    </div>
   );
 };
+
 export default Authlayout;
